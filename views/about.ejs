@@ -1,0 +1,285 @@
+<%- include('partials/header'); %>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+    
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="images/about1.JPG" alt="balveer">
+        </div>
+    
+        <div class="item">
+          <img src="images/about2.jpg" alt="navjeevan">
+        </div>
+    
+        <div class="item">
+          <img src="images/about3.JPG" alt="children">
+        </div>
+      </div>
+    
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+  </div>
+  <% if(timelines.length>0){ %>
+  <section class="section intro">
+    <div class="container">
+      <h1> Our Line Of Action </h1>
+    </div>
+  </section>
+  
+  <section class="timeline">
+    <ol>
+        <% var i; %>
+        <% for (i = 0; i < timelines.length; i++) { %>
+        <li>
+          <div>
+            <time><%= timelines[i].year %></time><p><%= timelines[i].description %></p>
+            <% if(currentUser){%>
+              <a class="btn btn-warning" href="/timelineedit/<%= timelines[i]._id %>/edit/">Edit</a>
+              <form class="delete-form" action="/timelinedelete/<%= timelines[i]._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-danger">DELETE</button>
+              </form>
+            <% } %>
+          </div>
+        </li>
+        <% } %>
+    </ol>
+    
+    <div class="arrows">
+      <button class="arrow arrow__prev disabled" disabled>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_prev.svg" alt="prev timeline arrow">
+      </button>
+      <button class="arrow arrow__next">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_next.svg" alt="next timeline arrow">
+      </button>
+    </div>
+  </section>
+  <% } %>
+  <% if(currentUser){%>
+    <a class="btn btn-success center5" href="/timelinenew">Add To Timeline</a>
+  <% } %>
+    <div class="container top-pad1">
+        <a href="#"><div class="heading2">
+            <i class="far fa-address-card"></i>
+            <span>Introduction</span>
+        </div></a>
+        <div class="contain">
+            <p class="content">
+                Sahyog is a non-profit, secular organization registered in 2002, working for empowerment 
+                of the minority communities, particularly, Slum-dwellers, Children, Migrant Workers, 
+                Elderly people and Widows.The programs of Sahyog involve intensive constant support 
+                of the selected households to ensure that they have access to the basic necessities to 
+                sustain livelihood which includes food, healthcare and free quality education.
+            </p>
+            <p class="content">
+                We have been in operation for over 17 years in the sector of women empowerment through 
+                our flagship initiative <b>Navjeevan Mahila Mandal</b>, and the development and support of 
+                children with another core program <b>Balveer Sangathan</b>
+            </p>
+            <p class="content">
+              We currently work with over 1600+ families on a daily basis to address their basic socio-economic
+              and educational issues, with a women and adolescent centric approach. The programs of Sahyog 
+              involve intensive constant support of the selected households to ensure that they have access
+              to the basic necessities to sustain livelihood, which includes food, healthcare, and free, 
+              quality education. We also target long-term development of these communities, through the
+              creation of quality infrastructure, support systems, and networks, to enable them to achieve 
+              a life free from exploitation at par with the middle class demographic of the nation. 
+            </p>
+        </div>
+    </div>
+    
+    <div class="container">
+      <div class="contain vis">
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <div>
+              <div class="heading5">
+                <i class="far fa-eye ic1"></i>
+                <span>Vision</span>
+              </div> 
+              <div class="contain3">
+                <h4>To ensure equitable opportunities for households in urgent need of care and enable them to access
+                quality resources to sustain livelihood</h4>
+              </div>
+            </div>
+            <div>
+              <div class="heading5">
+                <i class="fas fa-bullseye ic1"></i>
+                <span>Mission</span>
+              </div> 
+              <div class="contain3">
+                <p><h2>Short-term</h2>To empower households who need urgent care through the provision of an 
+                enhanced quality of education, healthcare, and basic infrastructure. 
+                <h2>Long-term</h2> To enable them to attain a standard of living at least at par with
+                the middle class demographic, through the provision of continued support and care, 
+                and ensure that they live a life free from exploitation. </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <div class="heading5">
+              <i class="fas fa-thumbs-up ic1"></i>
+              <span>Objective</span>
+            </div> 
+            <div class="contain3">
+              <p><h2>Empower the households</h2> 
+              Though the development of mechanisms to provide basic resources such as food and healthcare,
+              employment and ensure quality education for children until they reach adulthood. 
+             <h2>Develop the ecosystem</h2>
+            
+            Through the creation of quality infrastructure such as Government-aided and Private Schools, 
+            Primary and Central Healthcare facilities, Quality infrastructure and support systems.
+             <h2>Enable Community Action</h2>
+            Through data sharing, creation of partnerships and coalitions with the Government 
+            as well as Private entities, for collective social action, and development strong support networks</p>
+          </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="container top-pad1">
+    <div class="heading1">
+      <i class="fas fa-arrow-right ic1"></i>
+      <span>Our 3 A's</span>
+    </div>
+    <div class="contain">
+      <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <div class="heading5">
+            <span>Advocacy</span>
+          </div> 
+          <div>
+            <ul>
+              <li>Stand with the community for their children and women rights</li>
+              <li>School enrolment, especially of drop-out and girl children</li>
+              <li>Empower children to seek access to quality education, health and better opportunities</li>
+              <li>Women empowerment through community leadership</li>
+            </ul>  
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <div class="heading5">
+            <span>Action</span>
+          </div> 
+          <div>
+            <ul>
+              <li>Nurture the youth through educational and extracurricular activities</li>
+              <li>Work with community leaders to enable establishment of key infrastructure – Anganwadis and Health Centres</li>
+              <li>Organize activities that enable and empower women to take care of their themselves and their families</li>
+            </ul>  
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <div class="heading5">
+            <span>Aspiration</span>
+          </div> 
+          <div>
+            <ul>
+              <li>Build role models from the very young – leaders who inspire and empower others</li>
+              <li>Educate and provide support to women leaders, who empower other women to come forth for their rights</li>
+              <li>Create and sustain self-help groups such as <a href="/balveer">Balveer Sangathan</a> and <a href="/navjeevan">Navjeevan Mahila Mandal</a> to build future leaders</li>
+            </ul>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    
+  <footer id="footer" class="footer-1">
+    <div class="main-footer widgets-dark typo-light">
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="widget subscribe no-box">
+              <h3 class="widget-title">SAHYOG<span></span></h3>
+              <p>Sahyog is a non-profit, secular organization registered in 2002, working for empowerment 
+                of the minority communities, particularly, Slum-dwellers, Children, Migrant Workers, 
+                Elderly people and Widows.</p>
+            </div>
+          </div>
+          
+          <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="widget no-box">
+            <h3 class="widget-title">Quick Links<span></span></h3>
+            <ul class="thumbnail-widget">
+              <li>
+                <div class="thumb-content"><a href="/">Home</a></div> 
+              </li>
+              <li>
+                <div class="thumb-content"><a href="/about">About Us</a></div> 
+              </li>
+              <li>
+                <div class="thumb-content"><a href="/programs">Programs</a></div> 
+              </li>
+              <li>
+                <div class="thumb-content"><a href="/balveer">Balveer Sangathan</a></div> 
+              </li>
+              <li>
+                <div class="thumb-content"><a href="/navjeevan">Navjeevan Mahila Mandal</a></div>  
+              </li>
+              <li>
+                <div class="thumb-content"><a href="/covid">COVID-19 Response</a></div> 
+              </li>
+              <li>
+                <div class="thumb-content"><a href="/contact">Contact</a></div> 
+              </li>
+              <li>
+                <% if(!currentUser){ %>
+                <div class="thumb-content"><a href="/login">Login</a></div> 
+                <% } else { %>
+                  <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                <li><a href="/logout">Logout</a></li>
+                <% } %>
+              </li>
+            </ul>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="widget no-box">
+              <h3 class="widget-title">Donate<span></span></h3>
+              <p>The small charity that comes from the heart is better than the great charity that comes from the head.</p>
+              <a class="btn1" href="#." target="_blank">DONATE NOW</a>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="widget no-box">
+              <h3 class="widget-title">Contact Us<span></span></h3>
+              <p><a href="mailto:sahyog.gujarat@gmail.com" title="glorythemes" class="white">sahyog.gujarat@gmail.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+            
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>Copyright SAHYOG © 2021. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div>
+  <script type="text/javascript" src="/scripts/timeline.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

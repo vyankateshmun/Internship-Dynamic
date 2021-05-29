@@ -1,0 +1,25 @@
+
+.partnerlogos{
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 20px; 
+}
+.h2-partner {
+  text-align: center;
+  color: #0080ff;
+  padding: 20px;
+  font-size: 3.5rem;
+  margin-bottom:3rem;
+} 
+/* Slider */ 
+.slick-slide {
+  margin: 0px 10px;
+} 
+.slick-slide img {
+  width: 90%;
+}
+.contain5{
+    background-color: white;
+    padding-bottom: 10px;
+    border-top: 1px solid #0a0ef7;
+    box-shadow: 6px 8px 2px 1px rgba(0, 0, 255, .2);
+}

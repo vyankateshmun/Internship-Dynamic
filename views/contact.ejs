@@ -1,0 +1,31 @@
+<%- include('partials/header'); %>
+    <div class="imgCont">
+      <img src="images/PB110036.JPG"  alt="Nature" class="coverImg">
+      <div class="centered">Contact Us</div>
+      <div class="contact_full">
+        <div class="contact-wrap">
+          <div class="contact-in">
+            <h1>Contact Info</h1>
+            <h2><i class="fa fa-phone" aria-hidden="true"></i> Phone</h2>
+            <p><a href="<%= contact[0].mobile %>"><%= contact[0].mobile %></a></p>
+            <h2><i class="fa fa-envelope" aria-hidden="true"></i> Email</h2>
+            <p><a href="mailto:<%= contact[0].email %>" title="glorythemes"><%= contact[0].email %></a></p>
+            <h2><i class="fa fa-map-marker" aria-hidden="true"></i> Address</h2>
+            <p><%= contact[0].address %></p>
+            <ul>
+              <li><a href="<%= contact[0].facebook %>"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="<%= contact[0].twitter %>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              <li><a href="<%= contact[0].google %>"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+              <li><a href="<%= contact[0].instagram %>"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+          <div class="contact-in">
+            <iframe src="<%= contact[0].map %>" width="100%" height="auto" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% if(currentUser){%>
+      <a class="btn btn-warning" href="/contact/edit/">Edit</a>
+    <% }%>
+    <%- include('partials/footer'); %>

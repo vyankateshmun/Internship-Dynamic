@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/card.css">
+    <link rel="stylesheet" href="/stylesheets/counter.css">
+    <link rel="stylesheet" href="/stylesheets/contact.css">
+    <link rel="stylesheet" href="/stylesheets/individual.css">
+    <link rel="stylesheet" href="/stylesheets/partners.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/programs.css">
+    <link rel="stylesheet" href="/stylesheets/about.css">
+    <link rel="stylesheet" href="/stylesheets/timeline.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <title>SAHYOG - Empowering the Urban Poor</title>
+    <link rel = "icon" href = "/images/logo.jpg" type = "image/x-icon">
+</head>
+<body>
+  <div class="site">
+    <nav class="navbar navbar-light bg-light line navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <i class="fa fa-bars"></i>
+                </button>  
+                <a class="navbar-brand" href="/">
+                    <img class="logo" src="/images/logo.jpg">
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse navbar-center">
+                <ul class="nav navbar-nav navbar-center">
+                  <li class="active"><a href="/about">ABOUT US</a></li>
+                  <li><a href="/programs">PROGRAMS
+                    <span class="caret"></span>
+                  </a>
+                    <ul class="dropdown">
+                        <li><a href="/balveer">Balveer Sangathan</a></li>
+                        <li><a href="/navjeevan">Navjeevan Mahila Mandal</a></li>
+                        <li><a href="/covid">COVID-19 Response</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="/covid">COVID-19 RESPONSE</a></li>
+                  <li><a href="/contact">CONTACT US</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="donatebtn">
+                      <a href="#">
+                        <span>DONATE NOW</span>
+                        <span class="h_hert_sp"><i class="fa fa-heart"></i></span>
+                      </a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <% if(error && error.length > 0) { %>
+          <div class="alert alert-danger zind"><p><%=error %></p></div>
+        <% } %>
+        
+        <% if(success && success.length > 0) { %>
+          <div class="alert alert-success zind"><p><%= success %></p></div>
+        <% } %>
+     </div>

@@ -1,0 +1,84 @@
+  <footer id="footer" class="footer-1">
+    <div class="main-footer widgets-dark typo-light">
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="widget subscribe no-box">
+              <h3 class="widget-title">SAHYOG<span></span></h3>
+              <p>Sahyog is a non-profit, secular organization registered in 2002, working for empowerment 
+                of the minority communities, particularly, Slum-dwellers, Children, Migrant Workers, 
+                Elderly people and Widows.</p>
+            </div>
+          </div>
+          
+          <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="widget no-box">
+            <h3 class="widget-title">Quick Links<span></span></h3>
+            <ul class="thumbnail-widget">
+              <li>
+                <div class="thumb-content"><a href="/">Home</a></div> 
+              </li>
+              <li>
+                <div class="thumb-content"><a href="/about">About Us</a></div> 
+              </li>
+              <li>
+                <div class="thumb-content"><a href="/programs">Programs</a></div> 
+              </li>
+              <li>
+                <div class="thumb-content"><a href="/balveer">Balveer Sangathan</a></div> 
+              </li>
+              <li>
+                <div class="thumb-content"><a href="/navjeevan">Navjeevan Mahila Mandal</a></div>  
+              </li>
+              <li>
+                <div class="thumb-content"><a href="/covid">COVID-19 Response</a></div> 
+              </li>
+              <li>
+                <div class="thumb-content"><a href="/contact">Contact</a></div> 
+              </li>
+              <li>
+                <% if(!currentUser){ %>
+                <div class="thumb-content"><a href="/login">Login</a></div> 
+                <% } else { %>
+                  <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                <li><a href="/logout">Logout</a></li>
+                <% } %>
+              </li>
+            </ul>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="widget no-box">
+              <h3 class="widget-title">Donate<span></span></h3>
+              <p>The small charity that comes from the heart is better than the great charity that comes from the head.</p>
+              <a class="btn1" href="#." target="_blank">DONATE NOW</a>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="widget no-box">
+              <h3 class="widget-title">Contact Us<span></span></h3>
+              <p><a href="mailto:sahyog.gujarat@gmail.com" title="glorythemes" class="white">sahyog.gujarat@gmail.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+            
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>Copyright SAHYOG © 2021. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

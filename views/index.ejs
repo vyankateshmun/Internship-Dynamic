@@ -1,0 +1,326 @@
+<%- include('partials/header'); %>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <% var i; %>
+          <% for (i = 0; i < sliders.length; i++) { %>
+            <% if(i==0){ %>
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <%  } else{ %>
+              <li data-target="#myCarousel" data-slide-to="<%= i %>"></li>
+          <% } %>
+          <% }; %>
+        </ol>
+      
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <% var i; %>
+          <% for (i = 0; i < sliders.length; i++) { %>
+            <% if(i==0){ %>
+              <div class="item active">
+                <img src="images/<%= sliders[i].image %>" alt="balveer">
+                <div class="carousel-caption">
+                  <h3><%= sliders[i].title %></h3>
+                  <p><%= sliders[i].description %></p>
+                  <%  if(sliders[i].url){ %>
+                  <a href="/<%= sliders[i].url %>"><button class="btn btn-info">Read More</button></a>
+                  <% } %>
+                  <% if(currentUser){%>
+                    <a class="btn btn-warning" href="/slideredit/<%= sliders[i]._id %>/edit/">Edit</a>
+                    <form class="delete-form" action="/sliderdelete/<%= sliders[i]._id %>?_method=DELETE" method="POST">
+                      <button class="btn btn-danger">DELETE</button>
+                    </form>
+                  <% } %>
+                </div>
+              </div>
+            <%  } else{ %>
+              <div class="item">
+                <img src="images/<%= sliders[i].image %>" alt="balveer">
+                <div class="carousel-caption">
+                  <h3><%= sliders[i].title %></h3>
+                  <p><%= sliders[i].description %></p>
+                  <%  if(sliders[i].url){ %>
+                  <a href="/<%= sliders[i].url %>"><button class="btn btn-info">Read More</button></a>
+                  <% } %>
+                  <% if(currentUser){%>
+                    <a class="btn btn-warning" href="/slideredit/<%= sliders[i]._id %>/edit/">Edit</a>
+                    <form class="delete-form" action="/sliderdelete/<%= sliders[i]._id %>?_method=DELETE" method="POST">
+                      <button class="btn btn-danger">DELETE</button>
+                    </form>
+                  <% } %>
+                </div>
+              </div>
+            <% } %>
+          <% }; %>
+        </div>
+      
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <% if(currentUser){%>
+      <a class="btn btn-success center5" href="/slidernew">Add New Image</a>
+    <% } %>
+    <section class="c2">
+      <div class="counter-up">
+        <div class="content">
+          <div class="box">
+          
+            <div class="counter">6,000</div>
+            <div class="text">Women Empowered</div>
+          </div>
+          <div class="box">
+            <div class="counter">20,000</div>
+            <div class="text">Children Supported</div>
+          </div>
+          <div class="box">
+            <div class="counter">1,600</div>
+            <div class="text">Households under care</div>
+          </div>
+          <div class="box">
+            <div class="counter">20</div>
+            <div class="text">Anganwadis Established</div>
+          </div>
+        
+        </div>  
+      </div>
+     
+      <script>
+      $(document).ready(function($){
+        $('.counter').counterUp({
+          delay: 10,
+          time: 1200
+        });
+      });
+      </script>
+     </section>
+    
+    <div class="container top-pad">
+        <a href="about"><div class="heading1">
+            <i class="far fa-address-card"></i>
+            <span> About Us</span>
+        </div></a>
+        <div class="contain">
+          <div class="row">
+              <div class="col-lg-3">
+                <a href="about"><img src="images/logo.jpg" class="image1"></a>
+              </div>
+              <div class="col-lg-9">
+                <p class="content">
+                    Sahyog is a non-profit, secular organization registered in 2002, working for empowerment 
+                    of the minority communities, particularly, Slum-dwellers, Children, Migrant Workers, 
+                    Elderly people and Widows.The programs of Sahyog involve intensive constant support 
+                    of the selected households to ensure that they have access to the basic necessities to 
+                    sustain livelihood which includes food, healthcare and free quality education.
+                </p>
+                <p class="content">
+                    We have been in operation for over 17 years in the sector of women empowerment through 
+                    our flagship initiative <b>Navjeevan Mahila Mandal</b>, and the development and support of 
+                    children with another core program <b>Balveer Sangathan</b>....<a href="about" class="read">Read More</a>
+                </p>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="container top-pad">
+      <a href="programs"><div class="heading1">
+        <i class="fas fa-tasks ic1"></i>
+          <span>Programs</span>
+      </div></a>
+      <div class="contain2">
+        <div class="row">
+          <div class="col-lg-3">
+            <a href="programs"><img src="images/PB110080.jpg" class="image2"></a>
+          </div>
+          <div class="col-lg-9">
+            <p class="content3">
+              The programs of Sahyog involve intensive constant support 
+              of the selected households to ensure that they have access to the basic necessities to 
+              sustain livelihood which includes food, healthcare and free quality education. We focus 
+              on implementing a community monitoring system to support and track the proper 
+              functioning of  government educational institutions
+            </p>
+            <p class="content3">
+              We at Sahyog provides regular supply of ration kits and aiding healthcare for over 800 households 
+              and look at implementation of quality healthcare through CHCs and PHCs
+              We actively collaborate with the government and other organizations to drive change and impact 
+              in education, healthcare and community development 
+            </p>
+          </div>
+        </div>
+      </div>
+  </div>
+    <div class="partnerlogos">
+      <div class="container">
+        <div class=" contain5">
+        <h2 class="h2-partner">Our  Partners</h2>
+         <section class="customer-logos slider">
+            <div class="slide">
+              <a href="https://www.theahmedabadproject.com/" target="_blank">
+              <img src="images\ahmedabad_proj_2.jpg">
+              </a>
+            </div>
+            <div class="slide">
+              <a href="https://www.cry.org/" target="_blank">
+              <img src="images\cry-india.jpg">
+              </a>
+            </div>
+            <div class="slide">
+              <a href="https://azimpremjiuniversity.edu.in/" target="_blank">
+              <img src="images\azim_premji.jpg">
+             </a>
+            </div>
+            <div class="slide">
+              <a href="http://csr.infoanalytica.com/" target="_blank">
+              <img src="images\infoAnalytica.png">
+             </a>
+            </div>
+            <div class="slide">
+              <a href="https://prayaasiima.wordpress.com/" target="_blank">
+              <img src="images\prayas_iima.jpg">
+              </a>
+            </div>
+            <div class="slide">
+              <a href="https://www.facebook.com/IIMA.RTERC/" target="_blank">
+              <img src="images\iima_rte.png">
+              </a>
+            </div>
+            <div class="slide">
+              <a href="https://www.iima.ac.in/" target="_blank">
+              <img src="images\iima_logo.png">
+              </a>
+            </div>
+            <div class="slide">
+              <a href="https://ahmedabadcity.gov.in/" target="_blank">
+              <img src="images\ahmedabad_mun_co.jpg">
+              </a>
+            </div>
+            <div class="slide">
+              <a href="https://www.janvikas.in/" target="_blank">
+              <img src="images\janvikas.jpg">
+              </a>
+            </div>
+            <div class="slide">
+              <a href="https://smileforallsociety.org/" target="_blank">
+              <img src="images\smileforall.png">
+              </a>
+            </div>
+         </section>
+        </div>
+      </div>
+      </div>
+      <center>
+        <h2 class="aofTitle">Areas Of Operation</h2>
+        
+        <div class="polaroid">
+          <img src="images\Picture2.png" alt="5 Terre" style="width:100%">
+          <div class="container3">
+          <p>
+            <ul>
+                <li><b>Intensive action:</b> Sahyog works in <b>over 35 slum pockets</b> in the suburban and rural areas of <b>Vatva</b> and <b>Ramol</b>, and empowers <b>1693+</b> vulnerable, minority community, households, on the issues of education and health keeping the issues of child and women rights at the core. 
+                   </li>
+                <li> <b>Collective action through its networks:</b> In partnership with sister organizations, Sahyog has also been able to drive collective social action and ensure care and support to <b>3000+ disadvantaged households</b> residing in areas such as <b>Danilimda, the Bombay Hotel area, Juhapura. Fatehwadi and Narol.</b></li>
+                
+              </ul>
+            </p>
+          </div>
+        </div>
+        </center>
+
+      <footer id="footer" class="footer-1">
+        <div class="main-footer widgets-dark typo-light">
+          <div class="container">
+            <div class="row">
+              
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="widget subscribe no-box">
+                  <h3 class="widget-title">SAHYOG<span></span></h3>
+                  <p>Sahyog is a non-profit, secular organization registered in 2002, working for empowerment 
+                    of the minority communities, particularly, Slum-dwellers, Children, Migrant Workers, 
+                    Elderly people and Widows.</p>
+                </div>
+              </div>
+              
+              <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="widget no-box">
+                <h3 class="widget-title">Quick Links<span></span></h3>
+                <ul class="thumbnail-widget">
+                  <li>
+                    <div class="thumb-content"><a href="/">Home</a></div> 
+                  </li>
+                  <li>
+                    <div class="thumb-content"><a href="/about">About Us</a></div> 
+                  </li>
+                  <li>
+                    <div class="thumb-content"><a href="/programs">Programs</a></div> 
+                  </li>
+                  <li>
+                    <div class="thumb-content"><a href="/balveer">Balveer Sangathan</a></div> 
+                  </li>
+                  <li>
+                    <div class="thumb-content"><a href="/navjeevan">Navjeevan Mahila Mandal</a></div>  
+                  </li>
+                  <li>
+                    <div class="thumb-content"><a href="/covid">COVID-19 Response</a></div> 
+                  </li>
+                  <li>
+                    <div class="thumb-content"><a href="/contact">Contact</a></div> 
+                  </li>
+                  <li>
+                    <% if(!currentUser){ %>
+                    <div class="thumb-content"><a href="/login">Login</a></div> 
+                    <% } else { %>
+                      <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                    <li><a href="/logout">Logout</a></li>
+                    <% } %>
+                  </li>
+                </ul>
+                </div>
+              </div>
+    
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="widget no-box">
+                  <h3 class="widget-title">Donate<span></span></h3>
+                  <p>The small charity that comes from the heart is better than the great charity that comes from the head.</p>
+                  <a class="btn1" href="#." target="_blank">DONATE NOW</a>
+                </div>
+              </div>
+    
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="widget no-box">
+                  <h3 class="widget-title">Contact Us<span></span></h3>
+                  <p><a href="mailto:sahyog.gujarat@gmail.com" title="glorythemes" class="white">sahyog.gujarat@gmail.com</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+                
+        <div class="footer-copyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <p>Copyright SAHYOG © 2021. All rights reserved.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+      <script type="text/javascript" src="/scripts/partners.js"></script>
+      <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+  </body>
+</html>

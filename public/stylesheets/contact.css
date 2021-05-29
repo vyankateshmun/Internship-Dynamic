@@ -1,0 +1,173 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.imgCont{
+	padding-bottom: 80px;
+	padding-top: 100px;
+}
+.coverImg {
+    width: 100%;
+  height: 560px;
+  background-size: cover;
+  filter: brightness(50%);
+}
+.coverImg1 {
+    width: 100%;
+  height: 560px;
+  background-size: cover;
+}
+
+.contact_full {
+	display: grid;
+	align-items: center;
+	font-family: 'Poppins', sans-serif;
+}
+
+.centered {
+    position: absolute;
+    font-size: 60px;
+    color: white;  
+    font-weight: 500;
+    left: 50%;
+    transform: translate(-50%, -180%);
+  }
+  .centered1{
+    position: absolute;
+    font-size: 40px;
+    color: white;  
+    font-weight: 500;
+    left: 50%;
+    transform: translate(-50%, -180%);
+  }
+.contact-wrap {
+	width: 85%;
+	height: auto;
+	margin: auto;
+    margin-top: 150px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.contact-in {
+	padding: 5px 5px;
+}
+
+.contact-in:nth-child(1) {
+	flex: 40%;
+	color: #fff;
+}
+
+.contact-in:nth-child(2) {
+	flex: 60%;
+	background: #0040ff;
+}
+
+.contact-in:nth-child(3) {
+	flex: 25%;
+	padding: 0;
+}
+
+.contact-in h1 {
+	font-size: 40px;
+	color: #0040ff;
+	text-transform: uppercase;
+	font-weight: 500;
+	margin-bottom: 20px;
+}
+
+.contact-in h2 {
+	font-size: 40px;
+	font-weight: 400;
+	margin-bottom: 15px;
+    color: #000;
+}
+
+.contact-in h2 i {
+	font-size: 25px;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+	background: #f5f5f5;
+	color: #0040ff;
+	border-radius: 50px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.contact-in p {
+	font-size: 20px;
+	font-weight: 300;
+    margin-left: 20px;
+	margin-bottom: 20px;
+    color: black;
+}
+
+.contact-in ul {
+	padding: 0;
+	margin: 0;
+}
+
+.contact-in ul li {
+	list-style: none;
+	display: inline-block;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+.contact-in ul li a {
+	display: block;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	background: #fff;
+	border-radius: 50px;
+}
+
+.contact-in ul li a i {
+	font-size: 14px;
+	line-height: 30px;
+	color: #000;
+}
+
+.contact-in form {
+	width: 100%;
+	height: auto;
+}
+
+
+.contact-in iframe {
+	width: 100%;
+	height: 100%;
+}
+
+@media only screen and (max-width:480px) {
+	.contact-in:nth-child(1) {
+		flex: 50%;
+	}
+
+	.contact-in:nth-child(2) {
+		flex: 50%;
+	}
+
+	.contact-in:nth-child(3) {
+		flex: 100%;
+	}
+
+}
+
+@media only screen and (max-width:360px) {
+	.contact-in:nth-child(1) {
+		flex: 50%;
+	}
+
+	.contact-in:nth-child(2) {
+		flex: 50%;
+	}
+
+	.contact-in:nth-child(3) {
+		flex: 100%;
+	}
+
+}

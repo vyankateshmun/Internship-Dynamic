@@ -1,0 +1,90 @@
+.heading1{
+    background-color: #030303;
+    color: rgb(255, 255, 255);
+    padding: 25px;
+    font-size: 30px;
+    width: 250px;
+    height: 80px;
+    font-weight: 600;
+}
+.heading5{
+    color: rgb(0, 0, 0);
+    padding: 25px;
+    font-size: 30px;
+    width: 240px;
+    height: 80px;
+    font-weight: 600;
+    text-align: left;
+}
+.heading3{
+    background-color: #030303;
+    color: rgb(255, 255, 255);
+    padding: 25px;
+    font-size: 30px;
+    width: 150px;
+    height: 80px;
+    font-weight: 600;
+}
+.top-pad{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.image1{
+    padding-right: 20px;
+    padding-bottom: 20px;
+    width: 270px;
+    height: 270px;
+}
+.image2{
+    padding: 10px;
+    padding-right: 30px;
+    width: 330px;
+    height: 330px;
+}
+.contain{
+    padding: 50px;
+    background-color: white;
+    border-top: 1px solid #0a0ef7;
+    box-shadow: 6px 8px 2px 1px rgba(0, 0, 255, .2);
+}
+.contain2{
+    padding: 10px;
+    background-color: white;
+    border-top: 1px solid #0a0ef7;
+    box-shadow: 6px 8px 2px 1px rgba(0, 0, 255, .2);
+}
+.contain3{
+    padding: 30px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border-top: 1px solid #0a0ef7;
+    box-shadow: 6px 8px 2px 1px rgba(0, 0, 255, .2);
+}
+.content{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+.content3{
+    margin: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.read{
+    text-decoration: none;
+    color: blue;
+}
+.fa-address-card:before {
+    margin-right: 15px;
+}
+ic1:before{
+    margin-right: 15px;
+}

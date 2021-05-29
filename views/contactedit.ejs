@@ -1,0 +1,38 @@
+<%- include('partials/header'); %>
+<div class="row topmar">
+    <h1 style="text-align: center">Update Contact Details</h1>
+    <div style="width: 30%; margin: 25px auto;">
+        <form action="/contact?_method=PUT" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" name="mobile" value="<%= contact[0].mobile %>" placeholder="Mobile No." required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="email" value="<%= contact[0].email %>" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="address" value="<%= contact[0].address %>" placeholder="Address" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="facebook" value="<%= contact[0].facebook %>" placeholder="facebook" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="twitter" value="<%= contact[0].twitter %>" placeholder="twitter" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="google" value="<%= contact[0].google %>" placeholder="google" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="instagram" value="<%= contact[0].instagram %>" placeholder="instagram" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="map" value="<%= contact[0].map %>" placeholder="instagram" required>
+            </div>
+            <input type='hidden' name='id' value='<%= contact[0]._id %>' />
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Update!</button>
+            </div>
+        </form>
+        <a href="/contact">Go Back</a>
+    </div>
+</div>
+<%- include('partials/footer'); %>
