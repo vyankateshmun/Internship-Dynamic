@@ -1,3 +1,55 @@
 <%- include('partials/header'); %>
-    
+<div class="top-mar">
+<div class="grid-container">  
+  <div class="flex-child">
+         
+        <div class="row">
+          <div class="column">
+              <div class="card">
+                
+                <p>Sahyog has managed to aid disadvantaged households through the provision of rations over multiple cycles. Migrant workers who had lost their jobs as a result of the pandemic were identified and transported across the country.  </p>
+                <p>In collaboration with InfoAnayltica foundation and RTE Resource Center (an IIM Ahmedabad Initiative).
+              </p>
+               
+              </div>
+            </div>
+        </div>
+      <img src="images\rmt.png" class="rmtimg" id="rmtid">
+  </div>
+  
+  <div class="flex-child"><img src="images\oi.png" id="stuff"></div>
+  </div> 
+  <br>
+  <hr style="height:2px;border-width:0;color:gray;background-color:blue;width: 100%;margin-top: 45px;">
+
+
+  <% var i; %>
+  <% for (i = 0; i < covid.length; i++) { %>  
+    <center>
+      <h2 class="aofTitle"><%= covid[i].title %></h2>
+      <div class="polaroid1">
+        <img src="images/<%= covid[i].image %>" alt="5 Terre" style="width:100%">
+        <div class="container4">
+        <p>
+          <%= covid[i].description %>
+        </p>
+        <center>
+          <% if(currentUser){%>
+            <a class="btn btn-warning" href="/covidedit/<%= covid[i]._id %>/edit/">Edit</a>
+            <form class="delete-form" action="/coviddelete/<%= covid[i]._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-danger">DELETE</button>
+            </form>
+          <% } %>
+        </center>
+        </div>
+      </div>
+    </center>
+
+    <hr style="height:2px;border-width:0;color:gray;background-color:blue;width: 100%;margin-top: 60px;">
+  <% } %>
+      
+  <% if(currentUser){%>
+    <center><a class="btn btn-success " href="/covidnew">Add New Programs</a></center>
+  <% } %>
+</div>
 <%- include('partials/footer'); %>

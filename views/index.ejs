@@ -39,9 +39,6 @@
                 <div class="carousel-caption">
                   <h3><%= sliders[i].title %></h3>
                   <p><%= sliders[i].description %></p>
-                  <%  if(sliders[i].url){ %>
-                  <a href="/<%= sliders[i].url %>"><button class="btn btn-info">Read More</button></a>
-                  <% } %>
                   <% if(currentUser){%>
                     <a class="btn btn-warning" href="/slideredit/<%= sliders[i]._id %>/edit/">Edit</a>
                     <form class="delete-form" action="/sliderdelete/<%= sliders[i]._id %>?_method=DELETE" method="POST">
@@ -65,26 +62,26 @@
         </a>
     </div>
     <% if(currentUser){%>
-      <a class="btn btn-success center5" href="/slidernew">Add New Image</a>
+      <center><a class="btn btn-success center5" href="/slidernew">Add New Image</a></center>
     <% } %>
     <section class="c2">
       <div class="counter-up">
         <div class="content">
           <div class="box">
           
-            <div class="counter">6,000</div>
+            <div class="counter"><%= counter[0].num1 %></div>
             <div class="text">Women Empowered</div>
           </div>
           <div class="box">
-            <div class="counter">20,000</div>
+            <div class="counter"><%= counter[0].num2 %></div>
             <div class="text">Children Supported</div>
           </div>
           <div class="box">
-            <div class="counter">1,600</div>
+            <div class="counter"><%= counter[0].num3 %></div>
             <div class="text">Households under care</div>
           </div>
           <div class="box">
-            <div class="counter">20</div>
+            <div class="counter"><%= counter[0].num4 %></div>
             <div class="text">Anganwadis Established</div>
           </div>
         
@@ -100,7 +97,9 @@
       });
       </script>
      </section>
-    
+    <% if(currentUser){%>
+      <center><a class="btn btn-success center5" href="/counteredit">Edit Numbers</a></center>
+    <% } %>
     <div class="container top-pad">
         <a href="about"><div class="heading1">
             <i class="far fa-address-card"></i>
@@ -122,7 +121,7 @@
                 <p class="content">
                     We have been in operation for over 17 years in the sector of women empowerment through 
                     our flagship initiative <b>Navjeevan Mahila Mandal</b>, and the development and support of 
-                    children with another core program <b>Balveer Sangathan</b>....<a href="about" class="read">Read More</a>
+                    children with another core program <b>Balveer Sangathan</b>....<a href="programs" class="read">Read More</a>
                 </p>
               </div>
           </div>
@@ -173,7 +172,7 @@
             </div>
             <div class="slide">
               <a href="https://azimpremjiuniversity.edu.in/" target="_blank">
-              <img src="images\azim_premji.jpg">
+              <img src="images\azim_premji.png">
              </a>
             </div>
             <div class="slide">
@@ -211,6 +210,11 @@
               <img src="images\smileforall.png">
               </a>
             </div>
+            <div class="slide">
+              <a href="https://twitter.com/coastindia?lang=en" target="_blank">
+              <img src="images\coast.jpg">
+              </a>
+            </div>
          </section>
         </div>
       </div>
@@ -219,7 +223,7 @@
         <h2 class="aofTitle">Areas Of Operation</h2>
         
         <div class="polaroid">
-          <img src="images\Picture2.png" alt="5 Terre" style="width:100%">
+          <img src="images\Picture2.jpeg" alt="5 Terre" style="width:100%">
           <div class="container3">
           <p>
             <ul>
@@ -259,12 +263,6 @@
                   </li>
                   <li>
                     <div class="thumb-content"><a href="/programs">Programs</a></div> 
-                  </li>
-                  <li>
-                    <div class="thumb-content"><a href="/balveer">Balveer Sangathan</a></div> 
-                  </li>
-                  <li>
-                    <div class="thumb-content"><a href="/navjeevan">Navjeevan Mahila Mandal</a></div>  
                   </li>
                   <li>
                     <div class="thumb-content"><a href="/covid">COVID-19 Response</a></div> 

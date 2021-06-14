@@ -12,11 +12,12 @@ var express         = require("express"),       //Framework
 
 var indexRoutes      = require("./routes/index");
 mongoose.Promise = global.Promise;
-
-mongoose.connect("mongodb://localhost:27017/internship" ,{useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false},function(error){
+const uri = "mongodb+srv://Vyankatesh:Vam@12345@sahyog.fpoka.mongodb.net/internship?retryWrites=true&w=majority";
+mongoose.connect(uri ,{useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false},function(error){
 	if(error) 
 		console.log(error);
-    console.log("Connected");
+    else
+        console.log("Connected");
 });//Database
 
 

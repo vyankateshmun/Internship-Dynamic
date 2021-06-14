@@ -59,43 +59,31 @@
           </div>
         <hr color="#000000">
         <div class="all-items">
+          <% for (i = 0; i < programs.length; i++) { %>
           <div class="item">
             <div class="left">
               <div class="img">
-                <img src="images\PB110080.JPG" alt="" class="pimg">
+                <img src="images/<%= programs[i].main_image%>" alt="" class="pimg">
               </div>
             </div>
             <div class="right">
-              <h2 class="project-title">BALVEER SANGATHAN</h2>
-              <h3 class="project-sub-title"><b>Educating children values of diversity, inclusivity through enacting situations.</b></h3>
-              <p class="project-desc">Established in 2012, Balveer Sangathan is an agglomeration of the diverse childcare and protection activities that Sahyog was involved in.
-              </p>
+              <h2 class="project-title"><%= programs[i].title%></h2>
+              <p class="project-desc"><%= programs[i].description%></p>
               <div class="buttons">
-                <a href="balveer" class="primary-btn">Know More</a>
-                
-              </div>
-  
+                <a href="/programs/<%= programs[i]._id %>" class="primary-btn">Know More</a>
+              </div>  
+              <% if(currentUser){%>
+                <a class="btn btn-warning" href="/programs/<%= programs[i]._id %>/edit/">Edit</a>
+                <form class="delete-form" action="/programdelete/<%= programs[i]._id %>?_method=DELETE" method="POST">
+                  <button class="btn btn-danger">DELETE</button>
+                </form>
+              <% } %>
             </div>
+          <% } %> 
           </div>
-          <div class="item">
-            <div class="left">
-              <div class="img">
-                <img src="images\DSCF6721.JPG" alt="" class="pimg">
-              </div>
-            </div>
-            <div class="right">
-              <h2 class="project-title">NAVJEEVAN MAHILA MANDAL
-              </h2>
-              <h3 class="project-sub-title"><b>Mobilize and Empower women</b>
-              </h3>
-              <p class="project-desc">Initiated in 2008, under the leadership of 29 community leaders, Navjeevan Mahila Mandal focusses on driving care and
-                  ensuring empowerment for women and mothers.
-              </p>
-              <div class="buttons">
-                <a href="navjeevan" class="primary-btn">Know More</a>
-              </div>
-            </div>
-          </div>
+          <% if(currentUser){%>
+            <center><a class="btn btn-success center5" href="/programnew">Add New Program</a></center>
+          <% } %>
           <div class="item">
             <div class="left">
               <div class="img">
@@ -110,7 +98,7 @@
                 hard but in the end
                 we provided a good quality website that satisfied the client.</p>
               <div class="buttons">
-                <a href="#" class="primary-btn">Know More</a>
+                <a href="/covid" class="primary-btn">Know More</a>
               </div>
             </div>
           </div>

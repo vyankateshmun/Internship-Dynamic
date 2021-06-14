@@ -5,8 +5,11 @@ var User = require("../models/user");
 var Slider  = require("../models/slider")    //Slider Images
 var Contact  = require("../models/contact")    //Contact Details
 var Timeline = require("../models/timeline");	//Timeline
+var Counter = require("../models/counter");	//counter
+var Program = require("../models/program");	//program
+var Covid = require("../models/covid");	//covid
 const middleware = require("../middleware");
-const { isLoggedIn, isSafe, checkUserImage, checkUserTimeline} = middleware;
+const { isLoggedIn, isSafe, checkUserImage, checkUserTimeline,checkUserProgram, checkCovidProgram} = middleware;
 
 router.get("/",function(req,res){
 	res.redirect("index");
@@ -16,7 +19,13 @@ router.get("/index",function(req,res){
 		if(err){
 			console.log(err);
 		} else {
-			res.render("index",{sliders: allSlider});
+			Counter.find({},function(err,counter){
+				if(err){
+					console.log(err);
+				} else {
+					res.render("index",{sliders: allSlider,counter:counter});
+				}
+			});
 		}
 	});
 });
@@ -94,19 +103,155 @@ router.get("/about",function(req,res){
 		}
 	});
 });
-
-router.get("/programs",function(req,res){
-	res.render("programs");
+router.get("/programs", function(req, res){
+      // Get all programs from DB
+	Program.find({}, function(err, allPrograms){
+		if(err){
+			console.log(err);
+		} else {
+			res.render("programs",{programs: allPrograms});
+		}
+	});
 });
 
-router.get("/balveer",function(req,res){
-	res.render("balveer");
+router.post("/programs", isLoggedIn, isSafe, function(req, res){
+	var title = req.body.title;
+	var main_image = req.body.main_image;
+	var description = req.body.description;
+	var details = req.body.details;
+	var img1 = req.body.img1;
+	var img2 = req.body.img2;
+	var img3 = req.body.img3;
+	var img4 = req.body.img4;
+	var background_image = req.body.background_image;
+    var newData = {title: title,main_image:main_image,description:description,background_image:background_image,details:details,img1:img1,img2:img2,img3:img3,img4:img4}; 
+	// Create a new program and save to DB
+	Program.create(newData, function(err, newlyCreated){
+		if(err){
+			console.log(err);
+			req.flash('error', 'Sorry, Program cannot be created successfully ');
+			return res.redirect('/programs');
+		} else {
+			res.redirect("/programs");
+		}
+	});
 });
-router.get("/navjeevan",function(req,res){
-	res.render("navjeevan");
+//NEW - show form to create new program
+router.get("/programnew", isLoggedIn, function(req, res){
+	res.render("programnew"); 
+});
+
+// SHOW - shows more info about one program
+router.get("/programs/:id", function(req, res){
+    Program.findById(req.params.id).exec(function(err, foundprogram){
+        if(err || !foundprogram){
+            console.log(err);
+            req.flash('error', 'Sorry, that program does not exist!');
+            return res.redirect('/programs');
+        }
+        //render show template with that program
+        res.render("programshow", {program: foundprogram});
+    });
+});
+// EDIT - shows edit form for a program
+router.get("/programs/:id/edit", isLoggedIn, checkUserProgram, function(req, res){
+    //render edit template with that program
+    res.render("programedit", {program: req.program});
+});
+
+// PUT - updates program in the database
+router.put("/programs/:id", isSafe, function(req, res){  
+    var title = req.body.title;
+	var main_image = req.body.main_image;
+	var description = req.body.description;
+	var details = req.body.details;
+	var img1 = req.body.img1;
+	var img2 = req.body.img2;
+	var img3 = req.body.img3;
+	var img4 = req.body.img4;
+	var background_image = req.body.background_image;
+    var newData = {title: title,main_image:main_image,description:description,background_image:background_image,details:details,img1:img1,img2:img2,img3:img3,img4:img4}; 
+    Program.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, program){
+        if(err){
+            req.flash("error", err.message);
+            res.redirect("back");
+        } else {
+            req.flash("success","Successfully Updated!");
+            res.redirect("/programs");
+        }
+    });
+});
+
+// DELETE - removes program from the database
+router.delete("/programdelete/:id", isLoggedIn, checkUserProgram, function(req, res) {
+	req.program.remove(function(err) {
+		if(err) {
+			req.flash('error', err.message);
+			return res.redirect("/programs");
+		}
+		req.flash('error', 'Program deleted!');
+		res.redirect("/programs");
+	});
 });
 router.get("/covid",function(req,res){
-	res.render("covid");
+	Covid.find({}, function(err, allCovid){
+		if(err){
+			console.log(err);
+		} else {
+			res.render("covid",{covid: allCovid});
+		}
+	});
+});
+router.get("/covidnew", isLoggedIn, function(req, res){
+	res.render("covidnew"); 
+});
+router.post("/covid", isLoggedIn, isSafe , function(req, res){
+    var image = req.body.image;
+	var title = req.body.title;
+    var description = req.body.description;
+    var newData = {image: image, title:title, description: description};
+    // Create a new Image and save to DB
+    Covid.create(newData, function(err, newlyCreated){
+        if(err){
+            req.flash('error', 'Sorry, Program cannot be created successfully ');
+            return res.redirect("/covid");
+        } else {
+			req.flash("success", "Successfully Added ");
+            res.redirect("/covid");
+        }
+    });
+});
+// EDIT - shows edit form for a covid
+router.get("/covidedit/:id/edit", isLoggedIn, checkCovidProgram, function(req, res){
+    //render edit template with that covid
+    res.render("covidedit", {covid: req.covid});
+});
+// PUT - updates covid in the database
+router.put("/covidedit/:id", isLoggedIn, isSafe, function(req, res){
+	var image = req.body.image;
+	var title = req.body.title;
+    var description = req.body.description;
+    var newData = {image: image, title:title, description: description}; 
+    Covid.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, covid){
+        if(err){
+            req.flash("error", err.message);
+			console.log(err.message);
+            res.redirect("/covid");
+        } else {
+            req.flash("success","Successfully Updated!");
+            res.redirect("/covid");
+        }
+    });
+});
+router.delete("/coviddelete/:id", isLoggedIn, checkCovidProgram, function(req, res) {
+	req.covid.remove(function(err) {
+		if(err) {
+			req.flash('error', err.message);
+			return res.redirect("/covid");
+		}
+		req.flash('error', 'Program deleted!');
+		res.redirect("/covid");
+	});
 });
 router.get("/login",function(req,res){
 	res.render("login");
@@ -118,8 +263,7 @@ router.post("/slider", isLoggedIn, isSafe , function(req, res){
     var image = req.body.image;
 	var title = req.body.title;
     var description = req.body.description;
-	var url = req.body.url;
-    var newSlider = {image: image, title:title, description: description, url: url};
+    var newSlider = {image: image, title:title, description: description};
     // Create a new Image and save to DB
     Slider.create(newSlider, function(err, newlyCreated){
         if(err){
@@ -141,8 +285,7 @@ router.put("/slideredit/:id", isLoggedIn, isSafe, function(req, res){
 	var image = req.body.image;
 	var title = req.body.title;
     var description = req.body.description;
-	var url = req.body.url;
-    var newData = {image: image, title:title, description: description, url: url}; 
+    var newData = {image: image, title:title, description: description}; 
     Slider.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, slider){
         if(err){
             req.flash("error", err.message);
@@ -164,7 +307,33 @@ router.delete("/sliderdelete/:id", isLoggedIn, checkUserImage, function(req, res
 		res.redirect("/index");
 	});
 });
-
+router.get("/counteredit", isLoggedIn, function(req, res){
+    //render edit template with counter
+	Counter.find({}, function(err, counter){
+		if(err){
+			console.log(err);
+		} else {
+			res.render("counteredit",{counter: counter});
+		}
+	});;
+});
+router.put("/counter", isSafe, function(req, res){
+	var num1 = req.body.num1;
+	var num2 = req.body.num2;
+	var num3 = req.body.num3;
+	var num4 = req.body.num4;
+    var newData = {num1:num1,num2:num2,num3:num3,num4:num4}; 
+	Counter.findByIdAndUpdate(req.body.id, {$set: newData}, function(err, counter){
+        if(err){
+            req.flash("error", err.message);
+			console.log(err.message);
+            res.redirect("/index");
+        } else {
+            req.flash("success","Successfully Updated!");
+            res.redirect("/index");
+        }
+    });
+});
 //For Timeline
 router.get("/timelinenew", isLoggedIn, function(req, res){
 	res.render("timelinenew"); 
