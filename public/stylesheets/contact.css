@@ -156,7 +156,27 @@
 	}
 
 }
-
+@media (max-width: 768px){
+    .coverImg {
+		width: 100%;
+	  height: 200px;
+	  background-size: cover;
+	  filter: brightness(50%);
+	}
+	.coverImg1 {
+		width: 100%;
+	  height: 200px;
+	  background-size: cover;
+	}
+	.centered1{
+		position: absolute;
+		font-size: 20px;
+		color: white;  
+		font-weight: 400;
+		left: 50%;
+		transform: translate(-50%, -180%);
+	  }
+}
 @media only screen and (max-width:360px) {
 	.contact-in:nth-child(1) {
 		flex: 50%;
