@@ -135,49 +135,36 @@ ul li ul.dropdown li a:focus, ul li ul.dropdown li a:hover{
     background-color: white;
 }
 
-.banner-container {
-	width: 100%;
-	margin-top: 70px;
-	background: rgba(0,0,0,0.8);
-	min-height: 50px;
-}
-.home-banner-container {
-	width: 100%;
-	margin-top: 70px;
-	background: rgba(0,0,0,0.8);
-	min-height: 50px;
-}
-.carousel-inner > .item {
-	text-align: center;
-}
-.carousel-inner > .item img {
-	display: inline-block;
-}
 @media (max-width: 768px){
     .banner-container, .home-banner-container {
         margin-top: 100px;
         min-height: 80px;
     }
     .carousel-caption p {display: none;}
+    .carousel-inner > .item {
+        text-align: center;
+    }
+    .carousel-inner > .item img {
+        display: inline-block;
+    }
 }
 @media (min-width: 768px){
     .banner-container {
         width: 100%;
-        margin-top: 70px;
         background: rgba(0,0,0,0.8);
         min-height: 50px;
-        height: 600px;
+        height: 700px;
     }
     .home-banner-container {
         width: 100%;
-        margin-top: 70px;
         background: rgba(0, 0, 0, 0.342);
         min-height: 50px;
-        height: 600px;
+        height: 700px;
+        position: relative;
     }
     .carousel-inner > .item {
         text-align: center;
-        height: 600px;
+        height: 700px;
     }
     .carousel-inner > .item img {
         display: inline-block;

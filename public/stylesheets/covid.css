@@ -95,14 +95,14 @@
     color: black;
     font-weight: 550;
 }
-
-div.polaroid {
-  width: 60%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
+@media (max-width: 768px){
+  div.polaroid {
+    width: 90%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+  }
 }
-
 div.container3 {
   padding: 40px 25px 40px 25px;
   
@@ -120,14 +120,20 @@ div.container3 {
     font-size: 40px;
     margin-top: 70px;
 }
-
 div.polaroid1 {
   width: 70%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
 }
-
+@media (max-width: 768px){
+  div.polaroid1 {
+    width: 90%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+  }
+}
 div.container4 {
   text-align: left;
   padding: 40px 25px 40px 25px;
